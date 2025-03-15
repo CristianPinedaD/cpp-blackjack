@@ -37,8 +37,17 @@ typedef vector<Card> Deck;
 */
 Deck createDeck();
 
-Deck shuffleDeck(Deck sorted); 
+Deck shuffleDeck(Deck sorted);
 
+Deck hit(Deck &playerDeck, Deck &gameDeck);
 
+void checkCards(Deck playerDeck); 
+
+void stay();
+
+/* Returns 1 if Dealer won, 0 if player won, 2 otherwise */
+int checkWin(Deck playerDeck, Deck dealerDeck);
+
+void dealerPlay(); 
 
 #endif CARD_H

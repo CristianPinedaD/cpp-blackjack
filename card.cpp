@@ -1,7 +1,5 @@
 #include "card.h"
 
-
-
 Deck createDeck() {
 	Deck deck;
 	vector<string> suits = {"Spades", "Hearts", "Clubs", "Diamonds"};
@@ -21,4 +19,20 @@ Deck shuffleDeck(Deck sorted) {
 	mt19937 g(rd());
 
 	shuffle(sorted.begin(), sorted.end(), g);
+}
+
+Deck hit(Deck &playerDeck, Deck &gameDeck) {
+	gameDeck = shuffleDeck(gameDeck);
+
+	if (playerDeck.size() == 0) {
+		playerDeck.push_back(gameDeck.back());
+		gameDeck.pop_back();
+		playerDeck.push_back(gameDeck.back());
+		gameDeck.pop_back();
+		gameDeck = shuffleDeck(gameDeck);
+	}
+    else {
+		playerDeck.push_back(gameDeck.back());
+		gameDeck.pop_back(); 
+	}
 }
