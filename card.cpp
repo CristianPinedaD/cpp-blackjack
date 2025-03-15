@@ -1,5 +1,21 @@
 #include "card.h"
 
+string Card::getSuit() {
+	return this->suit; 
+}
+
+int Card::getValue() {
+	return this->type; 
+}
+
+void Card::setSuit(string suit) {
+    this->suit = suit; 
+}
+
+void Card::setValue(int value) {
+	this->type = value; 
+}
+
 Deck createDeck() {
 	Deck deck;
 	vector<string> suits = {"Spades", "Hearts", "Clubs", "Diamonds"};
