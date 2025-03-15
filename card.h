@@ -58,6 +58,6 @@ int checkWin(Deck playerDeck, Deck dealerDeck);
 
 void dealerPlay(Deck &gameDeck, Player &dealer);
 
-
+void dealerPeek(Deck dealerDeck); 
 
 #endif
