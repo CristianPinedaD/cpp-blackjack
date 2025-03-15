@@ -48,6 +48,6 @@ void stay();
 /* Returns 1 if Dealer won, 0 if player won, 2 otherwise */
 int checkWin(Deck playerDeck, Deck dealerDeck);
 
-void dealerPlay(); 
+void dealerPlay(Deck dealerDeck); 
 
 #endif CARD_H
