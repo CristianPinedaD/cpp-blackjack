@@ -14,7 +14,12 @@ int main(void) {
 	Player dealer = {"Dealer", dealerDeck, 0}; 
 
     while (player.staying == 0) {
-		system("clear"); 
+		system("clear");
+
+		cout << "Dealer peeks: " << endl;
+		dealerPeek(dealer.deck);
+		cout << "------------------------------------" << endl;
+
 		cout << "You currently have the following cards:" << endl;
 		checkCards(player.deck); 
 		cout << "Would you like to: " << endl;
@@ -47,13 +52,31 @@ int main(void) {
 
 	switch (winner) {
 		case 0:
-			cout << "Congratulations " << player.name << ", you win!" << endl; 
+			system("clear");
+
+			cout << "Your hand: " << endl;
+			checkCards(player.deck);
+			cout << "------------------------------" << endl;
+			cout << "The dealer's hand: " << endl;
+			checkCards(dealer.deck);
+			cout << "------------------------------" << endl;
+			cout << "Congratulations " << player.name << ", you win!" << endl;
 			break;
 		case 1:
+			system("clear");
+
+			cout << "Your hand: " << endl;
+			checkCards(player.deck);
+			cout << "------------------------------" << endl;
+			cout << "The dealer's hand: " << endl;
+			checkCards(dealer.deck);
+			cout << "------------------------------" << endl;
 			cout << "Womp womp, dealer won." << endl;
 			break;
 		case 2:
-			cout << "It's a tie!" << endl; 
+			system("clear");
+			
+			cout << "It's a tie!" << endl;
 			break;
 	}
 }
