@@ -157,9 +157,6 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 	}
 }
 
-void stay(Player &player) {
-	player.stay = 1;
-}
 
 void dealerPlay(Deck &gameDeck, Player &dealer) {
 
@@ -169,6 +166,6 @@ void dealerPlay(Deck &gameDeck, Player &dealer) {
 		hit(dealer.deck, gameDeck); 
 	}
     else {
-		stay(dealer); 
+		dealer.staying = 1; 
 	}
 }

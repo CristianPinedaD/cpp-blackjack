@@ -12,7 +12,7 @@ int main(void) {
 	Player player = {playerName, playerDeck, 0};
 	Player dealer = {"Dealer", dealerDeck, 0}; 
 
-    while (player.stay == 0) {
+    while (player.staying == 0) {
 		cout << "You currently have the following cards:" << endl;
 		checkCards(player.deck); 
 		cout << "Would you like to: " << endl;
@@ -32,7 +32,7 @@ int main(void) {
 				player.deck = hit(player.deck, gameDeck);
 				break;
 			case 2:
-				stay(player); 
+				player.staying = 1;
 				break;
 		}
 

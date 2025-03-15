@@ -32,6 +32,14 @@ class Card {
 /* That's 13 cards in each suit */
 typedef vector<Card> Deck;
 
+struct player {
+	string name;
+	Deck deck;
+	int staying; // 1 if they're staying
+};
+
+typedef struct player Player;
+
 /*
     Creates an unshuffled deck of cards
 */
@@ -51,11 +59,5 @@ int checkWin(Deck playerDeck, Deck dealerDeck);
 void dealerPlay(Deck &gameDeck, Player &dealer);
 
 
-struct player {
-	string name;
-	Deck deck;
-	int staying; // 1 if they're staying 
-};
 
-typedef struct player Player; 
-#endif CARD_H
+#endif
