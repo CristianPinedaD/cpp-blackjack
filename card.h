@@ -43,11 +43,19 @@ Deck hit(Deck &playerDeck, Deck &gameDeck);
 
 void checkCards(Deck playerDeck); 
 
-void stay();
+void stay(Player &player);
 
 /* Returns 1 if Dealer won, 0 if player won, 2 otherwise */
 int checkWin(Deck playerDeck, Deck dealerDeck);
 
-void dealerPlay(Deck dealerDeck); 
+void dealerPlay(Deck &gameDeck, Player &dealer);
 
+
+struct player {
+	string name;
+	Deck deck;
+	int stay; // 1 if they're staying 
+};
+
+typedef struct player Player; 
 #endif CARD_H

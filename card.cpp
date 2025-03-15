@@ -156,4 +156,18 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 	}
 }
 
-void dealerPlay(Deck dealerDeck) {}
+void stay(Player &player) {
+	player.stay = 1;
+}
+
+void dealerPlay(Deck &gameDeck, Player &dealer) {
+
+	Deck dealerDeck = dealer.deck; 
+
+	if (getDeckValue(dealerDeck) <= 17) {
+		hit(dealer.deck, gameDeck); 
+	}
+    else {
+		stay(dealer); 
+	}
+}
