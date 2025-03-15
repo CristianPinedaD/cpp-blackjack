@@ -31,6 +31,11 @@ int main(void) {
 		}
 
 		dealerPlay(gameDeck, dealer);
+
+		if (checkWin(player.deck, dealer.deck) == 1) {
+			checkCards(player.deck);
+			break; 
+		}
 	}
 
 	int winner = checkWin(player.deck, dealer.deck); 
