@@ -24,7 +24,7 @@ class Card {
 	  void setValue(int value);
 	  void setSuit(string suit); 
 	  int getValue();
-	  int getSuit(); 
+	  string getSuit(); 
 
 };
 

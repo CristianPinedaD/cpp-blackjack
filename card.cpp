@@ -5,7 +5,7 @@ Deck createDeck() {
 	vector<string> suits = {"Spades", "Hearts", "Clubs", "Diamonds"};
 
 	for (string suit : suits) {
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 13; i++) {
 			Card card = Card(suit, i);
 			deck.push_back(card);
 		}
@@ -30,9 +30,33 @@ Deck hit(Deck &playerDeck, Deck &gameDeck) {
 		playerDeck.push_back(gameDeck.back());
 		gameDeck.pop_back();
 		gameDeck = shuffleDeck(gameDeck);
-	}
-    else {
+	} else {
 		playerDeck.push_back(gameDeck.back());
-		gameDeck.pop_back(); 
+		gameDeck.pop_back();
+	}
+}
+
+void checkCards(Deck playerDeck) {
+	for (Card card : playerDeck) {
+		string suit = card.getSuit();
+		if (card.getValue() >= 2 && card.getValue() <= 10) {
+			cout << card.getValue() << " of " << suit << "." << endl;
+		} else {
+			switch (card.getValue()) {
+				case 0:
+					cout << "Ace of " << suit << "." << endl;
+					break;
+
+				case 1:
+					cout << "Jack of " << suit << "." << endl;
+					break;
+				case 11:
+					cout << "Queen of " << suit << "." << endl;
+					break;
+				case 12:
+					cout << "King of " << suit << "." << endl;
+					break;
+			}
+		}
 	}
 }
