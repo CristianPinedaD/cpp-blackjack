@@ -104,30 +104,38 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 	int dealerWin; // 0 if won, 1 if lost
 
 	if (playerValue > dealerValue) {
-        /* Player didn't go bust */
+		/* Player didn't go bust */
 		if (playerValue <= 21) {
 			playerWin = 0;
 			dealerWin = 1;
-        /* Player went bust */
+			/* Player went bust */
 		} else {
 			playerWin = 1;
 		}
 	} else if (playerValue < dealerValue) {
-        /* Dealer didn't go bust*/
+		/* Dealer didn't go bust*/
 		if (dealerValue <= 21) {
 			dealerWin = 1;
 			playerWin = 0;
-        /* Dealer went bust */
+			/* Dealer went bust */
 		} else {
 			dealerWin = 1;
 		}
+        /* They tied so they both lost */
 	} else {
-		playerWin = 1;
-		dealerWin = 1;
+        /* Tied but under the threshold */
+		if (playerValue <= 21) {
+			playerWin = 0;
+			dealerWin = 0;
+		}
+        /* Both went bust */
+        else {
+			playerWin = 1;
+			dealerWin = 1;
+		}
 	}
 
-
-    /* If they didn't tie */
+	/* If they didn't tie */
 	if (playerWin != dealerWin) {
 		if (playerWin == 0) {
 			return 0;
@@ -136,7 +144,7 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 		}
 	}
 
-    /* If they tied */
+	/* If they tied */
 	if (playerWin == dealerWin) {
 		if (playerWin = 0) {
 			return 2;
