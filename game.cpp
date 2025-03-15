@@ -1,4 +1,5 @@
 #include "card.h"
+#include <cstdlib>
 
 int main(void) {
 	string playerName;
@@ -13,6 +14,7 @@ int main(void) {
 	Player dealer = {"Dealer", dealerDeck, 0}; 
 
     while (player.staying == 0) {
+		system("clear"); 
 		cout << "You currently have the following cards:" << endl;
 		checkCards(player.deck); 
 		cout << "Would you like to: " << endl;
