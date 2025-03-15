@@ -36,7 +36,7 @@ Deck shuffleDeck(Deck sorted) {
 
 	shuffle(sorted.begin(), sorted.end(), g);
 
-	return sorted; 
+	return sorted;
 }
 
 Deck hit(Deck &playerDeck, Deck &gameDeck) {
@@ -53,7 +53,33 @@ Deck hit(Deck &playerDeck, Deck &gameDeck) {
 		gameDeck.pop_back();
 	}
 
-	return playerDeck; 
+	return playerDeck;
+}
+
+void dealerPeek(Deck dealerDeck) {
+	Card card = dealerDeck.back();
+
+	string suit = card.getSuit();
+
+	if (card.getValue() >= 2 && card.getValue() <= 10) {
+		cout << card.getValue() << " of " << suit << "." << endl;
+	} else {
+		switch (card.getValue()) {
+			case 0:
+				cout << "Ace of " << suit << "." << endl;
+				break;
+
+			case 1:
+				cout << "Jack of " << suit << "." << endl;
+				break;
+			case 11:
+				cout << "Queen of " << suit << "." << endl;
+				break;
+			case 12:
+				cout << "King of " << suit << "." << endl;
+				break;
+		}
+	}
 }
 
 void checkCards(Deck playerDeck) {
@@ -126,15 +152,15 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 		} else {
 			dealerWin = 1;
 		}
-        /* They tied so they both lost */
+		/* They tied so they both lost */
 	} else {
-        /* Tied but under the threshold */
+		/* Tied but under the threshold */
 		if (playerValue <= 21) {
 			playerWin = 0;
 			dealerWin = 0;
 		}
-        /* Both went bust */
-        else {
+		/* Both went bust */
+		else {
 			playerWin = 1;
 			dealerWin = 1;
 		}
@@ -161,15 +187,13 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 	}
 }
 
-
 void dealerPlay(Deck &gameDeck, Player &dealer) {
 
-	Deck dealerDeck = dealer.deck; 
+	Deck dealerDeck = dealer.deck;
 
 	if (getDeckValue(dealerDeck) <= 17) {
-		hit(dealer.deck, gameDeck); 
-	}
-    else {
-		dealer.staying = 1; 
+		hit(dealer.deck, gameDeck);
+	} else {
+		dealer.staying = 1;
 	}
 }

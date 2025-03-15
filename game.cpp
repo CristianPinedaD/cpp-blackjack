@@ -32,6 +32,9 @@ int main(void) {
 
 		dealerPlay(gameDeck, dealer);
 
+		cout << "Dealer has: " << endl;
+		checkCards(dealer.deck);
+
 		if (checkWin(player.deck, dealer.deck) == 1) {
 			checkCards(player.deck);
 			break; 
