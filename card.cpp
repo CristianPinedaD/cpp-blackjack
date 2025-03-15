@@ -15,3 +15,10 @@ Deck createDeck() {
 
 	return deck;
 }
+
+Deck shuffleDeck(Deck sorted) {
+	random_device rd;
+	mt19937 g(rd());
+
+	shuffle(sorted.begin(), sorted.end(), g);
+}

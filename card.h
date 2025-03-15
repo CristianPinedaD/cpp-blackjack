@@ -4,6 +4,8 @@
 #include <string> 
 #include <iostream> 
 #include <vector>
+#include <algorithm>
+#include <random>
 
 using namespace std; 
 
@@ -33,7 +35,9 @@ typedef vector<Card> Deck;
 /*
     Creates an unshuffled deck of cards
 */
-Deck createDeck(); 
+Deck createDeck();
+
+Deck shuffleDeck(Deck sorted); 
 
 
 
