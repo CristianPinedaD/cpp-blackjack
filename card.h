@@ -54,7 +54,7 @@ void dealerPlay(Deck &gameDeck, Player &dealer);
 struct player {
 	string name;
 	Deck deck;
-	int stay; // 1 if they're staying 
+	int staying; // 1 if they're staying 
 };
 
 typedef struct player Player; 

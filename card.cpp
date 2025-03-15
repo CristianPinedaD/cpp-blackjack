@@ -77,6 +77,7 @@ void checkCards(Deck playerDeck) {
 	}
 }
 
+/* A helper for checkWin() */
 int getDeckValue(Deck deck) {
 
 	int total = 0;
