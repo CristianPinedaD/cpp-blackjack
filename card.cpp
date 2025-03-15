@@ -35,6 +35,8 @@ Deck shuffleDeck(Deck sorted) {
 	mt19937 g(rd());
 
 	shuffle(sorted.begin(), sorted.end(), g);
+
+	return sorted; 
 }
 
 Deck hit(Deck &playerDeck, Deck &gameDeck) {
@@ -50,6 +52,8 @@ Deck hit(Deck &playerDeck, Deck &gameDeck) {
 		playerDeck.push_back(gameDeck.back());
 		gameDeck.pop_back();
 	}
+
+	return playerDeck; 
 }
 
 void checkCards(Deck playerDeck) {

@@ -21,12 +21,6 @@ int main(void) {
 		int option = 0;
 		cin >> option; 
 
-        while (option != 1 || option != 2) {
-			cout << "Would you like to: " << endl;
-			cout << "(1) Hit\n(2) Stay" << endl;
-			cin >> option; 
-		}
-
         switch (option) {
             case 1:
 				player.deck = hit(player.deck, gameDeck);
@@ -36,6 +30,20 @@ int main(void) {
 				break;
 		}
 
-		dealerPlay(gameDeck, dealer); 
+		dealerPlay(gameDeck, dealer);
+	}
+
+	int winner = checkWin(player.deck, dealer.deck); 
+
+	switch (winner) {
+		case 0:
+			cout << "Congratulations " << player.name << ", you win!" << endl; 
+			break;
+		case 1:
+			cout << "Womp womp, dealer won." << endl;
+			break;
+		case 2:
+			cout << "It's a tie!" << endl; 
+			break;
 	}
 }
