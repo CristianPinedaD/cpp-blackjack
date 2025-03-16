@@ -109,7 +109,7 @@ void checkCards(Deck playerDeck) {
 	}
 }
 
-int isBust(Player &player) {
+int isBust(Player player) {
 	if (getDeckValue(player.deck) > 21) {
 		return 1;
 	}
@@ -138,64 +138,37 @@ int getDeckValue(Deck deck) {
 	return total;
 }
 
-int checkWin(Deck playerDeck, Deck dealerDeck) {
-	int playerValue = getDeckValue(playerDeck);
-	int dealerValue = getDeckValue(dealerDeck);
+/*
+	Returns:
+		0 if the player won
+		1 if the dealer won 
+		2 if it was a tie
+		3 if both went bust
+*/
+int checkWin(Player &player, Player &dealer) {
+	int playerValue = getDeckValue(player.deck);
+	int dealerValue = getDeckValue(dealer.deck);
 
-	int playerWin; // 0 if won, 1 if lost
-	int dealerWin; // 0 if won, 1 if lost
+	if (isBust(player) && isBust(dealer)) {
+		return 3; 
+	}
 
-	
+	else if (isBust(player) && !isBust(dealer)) {
+		return 1; 
+	}
+	else if (!isBust(player) && isBust(dealer)) {
+		return 0;
+	}
 
-	if (playerValue > dealerValue) {
-		/* Player didn't go bust */
-		if (playerValue <= 21) {
-			playerWin = 0;
-			dealerWin = 1;
-			/* Player went bust */
-		} else {
-			playerWin = 1;
+	else {
+		if (getDeckValue(player.deck) > getDeckValue(dealer.deck)) {
+			return 0; 
 		}
-	} else if (playerValue < dealerValue) {
-		/* Dealer didn't go bust*/
-		if (dealerValue <= 21) {
-			dealerWin = 1;
-			playerWin = 0;
-			/* Dealer went bust */
-		} else {
-			dealerWin = 1;
+		if (getDeckValue(player.deck) < getDeckValue(dealer.deck)) {
+			return 1; 
 		}
-		/* They tied so they both lost */
-	} else {
-		/* Tied but under the threshold */
-		if (playerValue <= 21) {
-			playerWin = 0;
-			dealerWin = 0;
-		}
-		/* Both went bust */
 		else {
-			playerWin = 1;
-			dealerWin = 1;
-		}
-	}
-
-	/* If they didn't tie */
-	if (playerWin != dealerWin) {
-		if (playerWin == 0) {
-			return 0;
-		} else {
-			return 1;
-		}
-	}
-
-	/* If they tied */
-	if (playerWin == dealerWin) {
-		if (playerWin == 0) {
 			return 2;
-		}
-		/* Both went bust */
-		else {
-			return 1;
 		}
 	}
 }
