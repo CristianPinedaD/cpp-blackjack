@@ -193,7 +193,9 @@ void dealerPlay(Deck &gameDeck, Player &dealer) {
 
 	if (getDeckValue(dealerDeck) <= 17) {
 		hit(dealer.deck, gameDeck);
+		if (!dealer.deck.empty()) cout << "Dealer hits..." << endl; 
 	} else {
 		dealer.staying = 1;
+		cout << "Dealer stays..."; 
 	}
 }
