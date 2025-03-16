@@ -177,7 +177,7 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 
 	/* If they tied */
 	if (playerWin == dealerWin) {
-		if (playerWin = 0) {
+		if (playerWin == 0) {
 			return 2;
 		}
 		/* Both went bust */

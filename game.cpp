@@ -16,6 +16,8 @@ int main(void) {
     while (player.staying == 0) {
 		system("clear");
 
+
+		dealerPlay(gameDeck, dealer); 
 		cout << "Dealer peeks: " << endl;
 		dealerPeek(dealer.deck);
 		cout << "------------------------------------" << endl;
