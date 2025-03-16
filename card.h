@@ -51,6 +51,8 @@ Deck hit(Deck &playerDeck, Deck &gameDeck);
 
 void checkCards(Deck playerDeck); 
 
+int isBust(player); 
+
 void stay(Player &player);
 
 /* Returns 1 if Dealer won, 0 if player won, 2 otherwise */
