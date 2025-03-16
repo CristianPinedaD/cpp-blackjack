@@ -41,7 +41,7 @@ int main(void) {
 				break;
 		}
 
-		if (checkWin(player.deck, dealer.deck) == 1) {
+		if (checkWin(player, dealer) == 1) {
 			checkCards(player.deck);
 			break; 
 		}
@@ -49,7 +49,7 @@ int main(void) {
 
 	dealerPlay(gameDeck, dealer);
 
-	int winner = checkWin(player.deck, dealer.deck); 
+	int winner = checkWin(player, dealer); 
 
 	switch (winner) {
 		case 0:
@@ -79,5 +79,11 @@ int main(void) {
 			
 			cout << "It's a tie!" << endl;
 			break;
+
+		case 3:
+			system("clear");
+
+			cout << "Wow, you both went bust." << endl;
+			break; 
 	}
 }

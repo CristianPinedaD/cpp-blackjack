@@ -51,12 +51,22 @@ Deck hit(Deck &playerDeck, Deck &gameDeck);
 
 void checkCards(Deck playerDeck); 
 
-int isBust(player); 
+int isBust(player);
+
+int getDeckValue(Deck deck); 
 
 void stay(Player &player);
 
-/* Returns 1 if Dealer won, 0 if player won, 2 otherwise */
-int checkWin(Deck playerDeck, Deck dealerDeck);
+/*
+Returns: 
+
+	0 if Player won
+	1 if Dealer won
+	2 if it's a tie
+	3 if both went bust
+
+*/
+int checkWin(Player &player, Player &dealer);
 
 void dealerPlay(Deck &gameDeck, Player &dealer);
 
