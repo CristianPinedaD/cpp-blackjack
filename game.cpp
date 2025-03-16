@@ -41,16 +41,13 @@ int main(void) {
 				break;
 		}
 
-		dealerPlay(gameDeck, dealer);
-
-		cout << "Dealer has: " << endl;
-		dealerPeek(dealer.deck); 
-
 		if (checkWin(player.deck, dealer.deck) == 1) {
 			checkCards(player.deck);
 			break; 
 		}
 	}
+
+	dealerPlay(gameDeck, dealer);
 
 	int winner = checkWin(player.deck, dealer.deck); 
 
