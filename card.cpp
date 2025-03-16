@@ -51,6 +51,8 @@ Deck hit(Deck &playerDeck, Deck &gameDeck) {
 	} else {
 		playerDeck.push_back(gameDeck.back());
 		gameDeck.pop_back();
+
+		gameDeck = shuffleDeck(gameDeck); 
 	}
 
 	return playerDeck;
@@ -196,6 +198,6 @@ void dealerPlay(Deck &gameDeck, Player &dealer) {
 		if (!dealer.deck.empty()) cout << "Dealer hits..." << endl; 
 	} else {
 		dealer.staying = 1;
-		cout << "Dealer stays..."; 
+		cout << "Dealer stays..." << endl; 
 	}
 }

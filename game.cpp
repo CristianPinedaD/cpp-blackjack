@@ -24,7 +24,7 @@ int main(void) {
 
 		cout << "You currently have the following cards:" << endl;
 
-		hit(player.deck, gameDeck); 
+		player.deck = hit(player.deck, gameDeck); 
 		checkCards(player.deck);
 		cout << "Would you like to: " << endl;
 		cout << "(1) Hit\n(2) Stay" << endl;
