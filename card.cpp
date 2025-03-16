@@ -109,6 +109,15 @@ void checkCards(Deck playerDeck) {
 	}
 }
 
+int isBust(Player &player) {
+	if (getDeckValue(player.deck) > 21) {
+		return 1;
+	}
+	else {
+		return 0; 
+	}
+}
+
 /* A helper for checkWin() */
 int getDeckValue(Deck deck) {
 
@@ -135,6 +144,8 @@ int checkWin(Deck playerDeck, Deck dealerDeck) {
 
 	int playerWin; // 0 if won, 1 if lost
 	int dealerWin; // 0 if won, 1 if lost
+
+	
 
 	if (playerValue > dealerValue) {
 		/* Player didn't go bust */
